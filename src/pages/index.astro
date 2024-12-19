@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/LO_BASE.astro';
+---
+
+<BaseLayout title="Home">
+	<div class="home-wrapper page-wrapper">
+		<div class="home-content">
+			<h1>Helen McKay</h1>
+			<h2>Web Developer</h2>
+			<hr/>
+			<h3>Powering grassroots & small creatives</h3>
+			<p>Lightweight code, lightning-fast performance, & accessible design</p>
+		</div>
+	</div>
+</BaseLayout>
+
+<style>
+	
+	/* NOTE: will have to adjust the font-size of all these elements when I pick a new font */
+
+	/* 300px */
+
+	.home-wrapper {
+		display: flex;
+		flex: 1;
+		text-align: center;
+		margin: auto;
+	}
+
+	.home-content {
+		margin: auto 1rem;
+	}
+
+	.home-content h1 {
+		font-size: 2.4rem;
+		color: var(--pop-color);
+	}
+
+	.home-content h2 {
+		font-size: 1.7rem;
+		font-weight: normal;
+	}
+
+	.home-content hr {
+		margin: 1rem auto;
+		border-color: var(--pop-color);
+		width: 5rem;
+	}
+
+	.home-content h3 {
+		font-size: 0.8rem;
+		font-weight: normal;
+		font-style: italic;
+	}
+
+	.home-content p {
+		font-size: 0.8rem;
+		margin: 0.5rem 0;
+		color: var(--text-color-faint);
+	}
+
+	/* 600px */
+
+	@media screen and (min-width: 600px)
+	{
+		.home-content {
+			margin: auto;
+		}
+
+		.home-content h1 {
+			font-size: 5rem;
+		}
+
+		.home-content h2 {
+			font-size: 3.5rem;
+		}
+
+		.home-content hr {
+			width: 10rem;
+		}
+
+		.home-content h3 {
+			font-size: 1.5rem;
+		}
+
+		.home-content p {
+			font-size: 1.1rem;
+		}
+	}
+
+	/* 900px */
+
+	@media screen and (min-width: 900px) 
+	{
+		.home-content h1 {
+			font-size: 7.5rem;
+		}
+
+		.home-content h2 {
+			font-size: 6rem;
+		}
+
+		.home-content h3 {
+			font-size: 2.5rem;
+		}
+
+		.home-content p {
+			font-size: 1.6rem;
+		}
+	}
+
+	/* 1200px */
+	
+	@media screen and (min-width: 1200px) 
+	{
+		.home-content {
+			width: 1200px;
+		}
+
+		.home-content h1 {
+			font-size: 10rem;
+		}
+
+		.home-content h2 {
+			font-size: 7rem;
+		}
+
+		.home-content h3 {
+			font-size: 3rem;
+		}
+
+		.home-content p {
+			font-size: 2rem;
+		}
+	}
+</style>

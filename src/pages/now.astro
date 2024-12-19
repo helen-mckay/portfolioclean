@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/LO_BASE.astro';
+import Static from '../layouts/LO_STATIC.astro';
+import NowContent from '../content/staticpages/now_content.md';
+---
+
+<BaseLayout title="Now">
+    <div class="now-wrapper page-wrapper">
+        <p>What I'm up to right now:</p>
+        <Static>
+            <NowContent/>
+        </Static>
+        <p>Inspired by <a href="https://nownownow.com/" target="_blank" rel="noopener noreferrer">the /now page movement</a></p>
+    </div>
+</BaseLayout>
+
+<style>
+    .now-wrapper {
+        margin: 1rem;
+        line-height: 1.5;
+        max-width: 900px;
+    }
+
+    .now-wrapper p {
+        margin: 1rem 0;
+    }
+
+    @media screen and (min-width: 600px)
+    {
+        .now-wrapper {
+            padding: 0 1rem;
+            margin: 1rem auto;
+        }
+    }
+</style>

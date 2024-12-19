@@ -1,0 +1,101 @@
+@font-face {
+    font-family: 'Fugaz One';
+    src: url('/fonts/FugazOne-Regular.woff2') format('woff2'),
+        url('/fonts/FugazOne-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: optional;
+}
+
+@font-face {
+    font-family: 'Nokora';
+    src: url('/fonts/Nokora-Regular.woff2') format('woff2'),
+        url('/fonts/Nokora-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: optional;
+}
+
+:root {
+	--bg-color: #0c0c0c;
+	--text-color: #f7f7f7;
+	--text-color-faint: #b4b4b4;
+	--pop-color: #FFDE59;
+	--border: 1px solid var(--text-color-faint);
+	--pop-border: 1px solid var(--pop-color);
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	font-family: 'Nokora', sans-serif;
+	font-size: 16px;
+}
+
+*, *::before, *::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	min-width: 300px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-transform: uppercase;
+	font-family: 'Fugaz One', sans-serif;
+	line-height: 1.1;
+}
+
+a {
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: bold;
+	color: var(--pop-color);
+	transition: filter 0.3s ease;
+	line-height: 1.5;
+}
+
+a:hover, a:active {
+	filter: brightness(85%);
+}
+
+p {
+	margin-bottom: 1rem;
+	line-height: 1.5;
+}
+
+p a {
+	text-transform: none;
+	line-height: 1.5;
+}
+
+ul {
+	list-style: square;
+	list-style-position: inside;
+	margin: 1rem 0;
+	font-family: 'Nokora', sans-serif;
+}
+
+ul li {
+	line-height: 1.25rem;
+	margin-bottom: 0.25rem;
+}
+
+.sr-only 
+{
+	border: 0;
+	padding: 0;
+	margin: 0;
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+	clip: rect(1px 1px 1px 1px);
+	/* maybe deprecated but we need to support legacy browsers */
+	clip: rect(1px, 1px, 1px, 1px);
+	/* modern browsers, clip-path works inwards from each corner */
+	clip-path: inset(50%);
+	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
+	white-space: nowrap;
+}
+

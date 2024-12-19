@@ -1,0 +1,19 @@
+---
+import NavLink from "./NavLink.astro"
+---
+
+<nav>
+    <NavLink class="nav-link" href="/work">Work</NavLink>
+    <NavLink class="nav-link" href="/about">About</NavLink>
+    <NavLink class="nav-link" href="/now">Now</NavLink>
+</nav>
+
+<style>
+    nav {
+        display: flex;
+        gap: 1rem;
+        flex-flow: row wrap;
+        padding: 0.5rem;
+        margin-right: 1rem;
+    }
+</style>

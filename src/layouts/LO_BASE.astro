@@ -1,0 +1,78 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const { title } = Astro.props;
+
+const pageTitle = SITE_TITLE + " | " + title;
+
+// Base Layout, all other Layouts will build on this one
+
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title={pageTitle} description={SITE_DESCRIPTION}/>
+    </head>
+    <body>
+        <div id="base-wrapper">
+            <PageHeader/>
+            <main>
+                {title != "Home" && <div class="content-title">
+                    <h1>{title}</h1>
+                </div>}
+                <slot/>
+            </main>
+            <Footer/>
+        </div>
+    </body>
+</html>
+
+<style>
+    main {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+        align-items: stretch;
+        align-content: stretch;
+        min-width: 300px;
+    }
+
+    /* 300px */
+    .content-title {
+        border-bottom: var(--border);
+        padding: 1rem 0;
+    }
+
+    .content-title h1 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    /* 600px */
+
+    @media screen and (min-width: 600px) {
+        .content-title h1 {
+            font-size: 3.2rem;
+        }
+    }
+
+    /* 900px */
+
+    @media screen and (min-width: 900px)
+    {
+        .content-title h1 {
+            font-size: 4.8rem;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        .content-title h1 {
+            font-size: 6rem;
+        }
+    }
+</style>

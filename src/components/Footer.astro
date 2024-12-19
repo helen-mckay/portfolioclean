@@ -1,0 +1,33 @@
+---
+const today = new Date();
+import { SITE_OWNER, SITE_START_YEAR } from "../consts";
+import data from '../data.json';
+---
+
+<footer>
+	<div id="footer-links">
+		{data.Links.map(l => <a href={l.link} target="_blank" rel="noopener noreferrer">{l.name}</a>)}
+	</div>
+	<p>&copy; {SITE_START_YEAR} {(today.getFullYear() > 2024) && ( "&ndash;" + today.getFullYear())} {SITE_OWNER}. All rights reserved.</p>
+</footer>
+
+<style>
+	footer {
+		border-top: var(--border);
+		padding: 0.5rem 0;
+	}
+
+	#footer-links {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		font-size: 0.75rem;
+	}
+
+	footer p {
+		font-size: 0.75rem;
+		text-align: center;
+		color: var(--text-color-faint);
+		margin-bottom: 0;
+	}
+</style>

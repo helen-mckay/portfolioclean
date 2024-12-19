@@ -1,0 +1,114 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './LO_BASE.astro';
+
+type Props = CollectionEntry<'work'>['data'];
+
+const {title, role, techstack, github, liveproj, heroImage, description} = Astro.props;
+---
+
+<BaseLayout title={title}>
+    <div class="proj-breadcrumb">
+        <a href="/work">Work</a> <span aria-hidden>/ {title}</span>
+    </div>
+    <div class="proj">
+        { heroImage &&
+            <div class="proj-img-container">
+                <img class="proj-img" src={heroImage} alt="Screenshot of project"/>
+            </div> 
+        }
+        <h2 class="proj-title">{title}</h2>
+        <h3 class="proj-role">{role}</h3>
+        <ul class="proj-tech">
+            {techstack.map(t => (
+                <li>{t}</li>
+            ))}
+        </ul>
+        {(github || liveproj ) && <div class="proj-links">
+            {github && <a href={github} target="_blank" rel="noopener noreferrer">Code Repo</a>}
+            {liveproj && <a href={liveproj} target="_blank" rel="noopener noreferrer">Live Project</a>}
+       </div>}
+        <p class="proj-description">{description}</p>
+        <hr/>
+        <div class="proj-content">
+            <slot/>
+        </div>
+    </div>
+</BaseLayout>
+
+<style>
+    .proj-breadcrumb {
+        padding: 1rem;
+        border-bottom: var(--border);
+        color: var(--text-color-faint);
+    }
+
+    .proj {
+        margin: 1rem;
+        max-width: 900px;
+    }
+
+    .proj-img-container {
+        width: 100%;
+        padding: 0.5rem;
+        background-color: var(--text-color);
+        margin-bottom: 0.5rem;
+    }
+
+    .proj-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .proj-role {
+        font-weight: normal;
+        color: var(--text-color-faint);
+    }
+
+    .proj-tech {
+        display: flex;
+        list-style: none;
+        gap: 0.5rem;
+        flex-flow: row wrap;
+        margin: 0;
+    }
+
+    .proj-tech li {
+        font-style: italic;
+        color: var(--text-color-faint);
+        margin: 0;
+        font-size: 1rem;
+    }
+
+    .proj-links {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 1rem;
+        margin: 0.25rem 0;
+    }
+
+    .proj-description {
+        color: var(--text-color-faint);
+    }
+
+    .proj-content {
+        padding: 1rem 0;
+    }
+
+    @media screen and (min-width: 600px) {
+        .proj-title {
+            font-size: 2rem;
+        }
+
+        .proj-role {
+            font-size: 1.5rem;
+        }
+    }
+
+    @media screen and (min-width: 900px) {
+        .proj {
+            padding: 0 1rem;
+            margin: 1rem auto;
+        }
+    }
+</style>
